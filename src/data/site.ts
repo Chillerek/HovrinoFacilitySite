@@ -13,9 +13,9 @@ export const SITE = {
     en: "1 Bolnichny Gorodok St., Verkhneozyorsk, Verkhneozyorsk Region, 662914",
   },
   updated: "14.03.2005",
-};
+} satisfies Record<string, L>;
 
-export const UI: Record<string, L> = {
+export const UI = {
   home: { ru: "Главная", en: "Home" },
   about: { ru: "О больнице", en: "About Us" },
   departments: { ru: "Отделения", en: "Departments" },
@@ -44,4 +44,4 @@ export const UI: Record<string, L> = {
   download: { ru: "скачать", en: "download" },
   fileMissing: { ru: "файл отсутствует в архиве", en: "file not present in archive" },
   youAreHere: { ru: "Вы находитесь", en: "You are here" },
-};
+} satisfies Record<string, L>;
