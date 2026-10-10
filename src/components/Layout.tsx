@@ -4,7 +4,7 @@ import { useLang, type L } from "@/lib/i18n";
 import { SITE, UI } from "@/data/site";
 
 const NAV = [
-  { to: "/", k: "home" },
+  { to: "/", k: "home" as const },
   { to: "/about", k: "about" },
   { to: "/departments", k: "departments" },
   { to: "/specialists", k: "specialists" },
@@ -12,7 +12,7 @@ const NAV = [
   { to: "/patients", k: "patients" },
   { to: "/documentation", k: "documentation" },
   { to: "/contacts", k: "contacts" },
-] as const;
+] as const satisfies readonly { to: string; k: keyof typeof UI }[];
 
 export const ANNOUNCEMENTS: { date: string; text: L }[] = [
   { date: "10.03.2005", text: { ru: "С 21 марта изменён порядок передачи посылок пациентам отделения №2.", en: "From 21 March the procedure for delivering parcels to Department 2 patients will change." } },
