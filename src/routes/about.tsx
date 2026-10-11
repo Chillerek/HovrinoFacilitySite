@@ -35,7 +35,7 @@ function About() {
         <li>{T("Устав учреждения (ред. 1999 г.)", "Charter (1999 revision)")}</li>
         <li>{T("Правила внутреннего распорядка для пациентов", "Internal rules for patients")}</li>
         <li>
-          {T("Приказ №14 от 11.01.2002 «О порядке доступа к архиву исторических документов». П. 3: код доступа составляется из последних разрядов табельных номеров сотрудников, учётные записи которых приостановлены, в порядке стажа (по дате приёма на работу); каждое число соответствует букве латинского алфавита.", "Order No. 14 of 11.01.2002 \"On Access to the Historical Records Archive\". Clause 3: the access code is composed of the last digits of the ID numbers of employees whose records are suspended, in order of seniority (by start date); each number corresponds to a letter of the Latin alphabet.")}
+          {T("Приказ №14 от 11.01.2002 «О порядке доступа к архиву исторических документов». П. 3: в целях сохранности код доступа хранится в смещённом виде — LWVDOLH. Для получения кода каждую букву следует сдвинуть назад по латинскому алфавиту на число, равное номеру настоящего пункта.", "Order No. 14 of 11.01.2002 \"On Access to the Historical Records Archive\". Clause 3: for safekeeping, the access code is stored in shifted form — LWVDOLH. To obtain the code, shift each letter back through the Latin alphabet by the number of this clause.")}
         </li>
       </ul>
     </Layout>
