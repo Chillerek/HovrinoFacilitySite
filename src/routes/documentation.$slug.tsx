@@ -4,7 +4,7 @@ import { ArchiveGate } from "@/components/ArchiveGate";
 import { useLang } from "@/lib/i18n";
 import { UI } from "@/data/site";
 import { DOCS } from "@/data/documents";
-import { useArchive, downloadText } from "@/lib/archive";
+import { useArchive, downloadText, corruptText } from "@/lib/archive";
 
 export const Route = createFileRoute("/documentation/$slug")({
   loader: ({ params }) => {
@@ -48,15 +48,16 @@ function DocView() {
       <div className="paper">
         <div style={{ textAlign: "right" }}><span className="stamp">{t(doc.access)}</span></div>
         <h3>{t(doc.title)}</h3>
+        <p className="meta">{T("Файл повреждён. Восстановление невозможно.", "File corrupted. Recovery not possible.")}</p>
         {doc.body.map((b, i) => {
           if (b.t === "table") return (
-            <table key={i} className="tbl"><thead><tr>{b.head.map((h, j) => <th key={j}>{t(h)}</th>)}</tr></thead>
-              <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}>{t(c)}</td>)}</tr>)}</tbody></table>
+            <table key={i} className="tbl"><thead><tr>{b.head.map((h, j) => <th key={j}>{corruptText(t(h))}</th>)}</tr></thead>
+              <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}>{corruptText(t(c))}</td>)}</tr>)}</tbody></table>
           );
-          if (b.t === "h") return <h3 key={i}>{t(b.v)}</h3>;
-          if (b.t === "sig") return <p key={i} className="sig">{t(b.v)}</p>;
-          if (b.t === "note") return <p key={i} className="meta">{t(b.v)}</p>;
-          return <p key={i}>{t(b.v)}</p>;
+          if (b.t === "h") return <h3 key={i}>{corruptText(t(b.v))}</h3>;
+          if (b.t === "sig") return <p key={i} className="sig">{corruptText(t(b.v))}</p>;
+          if (b.t === "note") return <p key={i} className="meta">{corruptText(t(b.v))}</p>;
+          return <p key={i}>{corruptText(t(b.v))}</p>;
         })}
       </div>
       {doc.attachments && (
@@ -66,7 +67,7 @@ function DocView() {
             {doc.attachments.map((a) => (
               <li key={a.name}>
                 {a.content ? (
-                  <>{a.name} [<a href="#" onClick={(e) => { e.preventDefault(); downloadText(a.name, t(a.content!)); }}>{t(UI.download)}</a>]</>
+                  <>{a.name} [<a href="#" onClick={(e) => { e.preventDefault(); downloadText(a.name, corruptText(t(a.content!))); }}>{t(UI.download)}</a>]</>
                 ) : (
                   <><span className="missing">{a.name}</span> — <span className="meta">{t(UI.fileMissing)}</span></>
                 )}
