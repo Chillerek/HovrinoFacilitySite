@@ -9,6 +9,7 @@ import type { L } from "@/lib/i18n";
  * ordered by start date (oldest first), each number read as a position in the
  * Latin alphabet: 02 21 26 26 05 18 -> B U Z Z E R. The rule is hinted at in
  * Order No. 14 (about page) and on the documentation page.
+ * NOTE: password is now ITSALIE, hinted via Caesar cipher (LWVDOLH, shift 3) in Order No. 14.
  * If you change ARCHIVE_PASSWORD (src/data/documents.ts), update these IDs.
  */
 export type Status = "active" | "retired" | "left" | "suspended" | "deceased";

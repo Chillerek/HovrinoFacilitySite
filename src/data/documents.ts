@@ -23,7 +23,7 @@ import type { L } from "@/lib/i18n";
  *    2004 by Sokolov, who disappeared in November 2003.
  *  - Doc 009 (1988 review) states no incidents occurred in 1987, contradicting 006.
  */
-export const ARCHIVE_PASSWORD = "BUZZER";
+export const ARCHIVE_PASSWORD = "ITSALIE";
 
 export type Block =
   | { t: "p"; v: L }
