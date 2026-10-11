@@ -5,7 +5,7 @@ import { meta } from "@/lib/meta";
 import { SITE, UI } from "@/data/site";
 
 export const Route = createFileRoute("/contacts")({
-  head: () => meta("Контакты", "Адрес, телефоны и реквизиты ККПБ №3 «Северная Заря»."),
+  head: () => meta("Контакты", "Адрес, отделы и реквизиты ККПБ №3 «Северная Заря»."),
   component: Contacts,
 });
 
@@ -17,11 +17,11 @@ function Contacts() {
       <h1>{T("Контакты", "Contacts")}</h1>
       <p><b>{T("Адрес", "Address")}:</b> {t(SITE.address)}</p>
       <table className="tbl"><tbody>
-        <tr><td>{T("Приёмная главного врача", "Chief Physician's office")}</td><td>(39144) 2-11-07</td></tr>
-        <tr><td>{T("Справочная", "Information desk")}</td><td>(39144) 2-11-00</td></tr>
-        <tr><td>{T("Приёмное отделение", "Admissions")}</td><td>(39144) 2-11-03</td></tr>
-        <tr><td>{T("Отдел кадров", "Personnel")}</td><td>(39144) 2-11-15</td></tr>
-        <tr><td>{T("Архив", "Archive")}</td><td>(39144) 2-11-14</td></tr>
+        <tr><td>{T("Приёмная главного врача", "Chief Physician's office")}</td><td className="meta">{T("номер не обслуживается", "number not in service")}</td></tr>
+        <tr><td>{T("Справочная", "Information desk")}</td><td className="meta">{T("номер не обслуживается", "number not in service")}</td></tr>
+        <tr><td>{T("Приёмное отделение", "Admissions")}</td><td className="meta">{T("номер не обслуживается", "number not in service")}</td></tr>
+        <tr><td>{T("Отдел кадров", "Personnel")}</td><td className="meta">{T("номер не обслуживается", "number not in service")}</td></tr>
+        <tr><td>{T("Архив", "Archive")}</td><td className="meta">{T("номер не обслуживается", "number not in service")}</td></tr>
         <tr><td>{T("Корпус Б, пост №2", "Building B, station No. 2")}</td><td className="meta">{T("номер не обслуживается", "number not in service")}</td></tr>
       </tbody></table>
       <h2>{T("Проезд", "Directions")}</h2>

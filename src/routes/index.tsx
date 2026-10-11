@@ -69,7 +69,7 @@ function Home() {
 
       <h2>{T("Контактная информация", "Contact Information")}</h2>
       <p>
-        {T("Приёмная главного врача: (39144) 2-11-07. Справочная: (39144) 2-11-00.", "Chief Physician's office: (39144) 2-11-07. Information desk: (39144) 2-11-00.")}{" "}
+        {T("Телефоны приёмной главного врача и справочной не обслуживаются.", "The telephone numbers of the chief physician's office and the information desk are not in service.")}{" "}
         <Link to="/contacts">{t(UI.more)}</Link>
       </p>
     </Layout>
