@@ -13,7 +13,7 @@ export const SITE = {
     en: "1 Bolnichny Gorodok St., Verkhneozyorsk, Verkhneozyorsk Region, 662914",
   },
   updated: "14.03.2005",
-} satisfies Record<string, L>;
+};
 
 export const UI = {
   home: { ru: "Главная", en: "Home" },
