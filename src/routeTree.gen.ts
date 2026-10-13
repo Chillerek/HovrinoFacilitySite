@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CamerasRouteImport } from './routes/cameras'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as HistoryRouteImport } from './routes/history'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CamerasRoute = CamerasRouteImport.update({
+  id: '/cameras',
+  path: '/cameras',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactsRoute = ContactsRouteImport.update({
@@ -68,6 +74,7 @@ const DocumentationSlugRoute = DocumentationSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cameras': typeof CamerasRoute
   '/contacts': typeof ContactsRoute
   '/departments': typeof DepartmentsRoute
   '/history': typeof HistoryRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cameras': typeof CamerasRoute
   '/contacts': typeof ContactsRoute
   '/departments': typeof DepartmentsRoute
   '/history': typeof HistoryRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cameras': typeof CamerasRoute
   '/contacts': typeof ContactsRoute
   '/departments': typeof DepartmentsRoute
   '/history': typeof HistoryRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/cameras'
     | '/contacts'
     | '/departments'
     | '/history'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/cameras'
     | '/contacts'
     | '/departments'
     | '/history'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/cameras'
     | '/contacts'
     | '/departments'
     | '/history'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CamerasRoute: typeof CamerasRoute
   ContactsRoute: typeof ContactsRoute
   DepartmentsRoute: typeof DepartmentsRoute
   HistoryRoute: typeof HistoryRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cameras': {
+      id: '/cameras'
+      path: '/cameras'
+      fullPath: '/cameras'
+      preLoaderRoute: typeof CamerasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacts': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CamerasRoute: CamerasRoute,
   ContactsRoute: ContactsRoute,
   DepartmentsRoute: DepartmentsRoute,
   HistoryRoute: HistoryRoute,
