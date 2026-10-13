@@ -30,7 +30,7 @@ export const UI = {
     ru: "Регистратура: пн–пт 8:00–16:30\nПосещения: вт, чт, сб 15:00–18:00\nСправочная: круглосуточно",
     en: "Registry: Mon–Fri 8:00–16:30\nVisiting: Tue, Thu, Sat 15:00–18:00\nInformation desk: 24 hours",
   },
-  visitors: { ru: "Посетителей с 01.09.1999", en: "Visitors since 01.09.1999" },
+  visitors: { ru: "Посетителей с 01.09.1979", en: "Visitors since 01.09.1979" },
   updated: { ru: "Последнее обновление", en: "Last updated" },
   rights: { ru: "Все права защищены.", en: "All rights reserved." },
   best: { ru: "Сайт оптимизирован для разрешения 800×600 и Internet Explorer 5.0", en: "Best viewed at 800×600 in Internet Explorer 5.0" },
