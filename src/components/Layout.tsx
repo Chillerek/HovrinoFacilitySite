@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useLang, type L } from "@/lib/i18n";
 import { SITE, UI } from "@/data/site";
+import { useArchive } from "@/lib/archive";
 
 const NAV = [
   { to: "/", k: "home" as const },
@@ -34,6 +35,7 @@ export function Emblem() {
 
 export function Layout({ crumb, children, side = true }: { crumb?: L; children: ReactNode; side?: boolean }) {
   const { lang, setLang, t } = useLang();
+  const { unlocked } = useArchive();
   return (
     <div className="site">
       <div className="masthead">
@@ -54,6 +56,9 @@ export function Layout({ crumb, children, side = true }: { crumb?: L; children: 
             {t(UI[n.k])}
           </Link>
         ))}
+        {unlocked && (
+          <Link to="/cameras" activeProps={{ className: "active" }}>{t({ ru: "Камеры", en: "Cameras" })}</Link>
+        )}
       </nav>
       <div className="crumbs">
         {t(UI.youAreHere)}: <Link to="/">{t(UI.home)}</Link>
