@@ -5,9 +5,7 @@ import { useLang } from "@/lib/i18n";
 import { meta } from "@/lib/meta";
 import { useArchive } from "@/lib/archive";
 
-/* GM note: camera password = WARD14 (hint: doc 007, Ward 14 buzzer). Frontend-only. */
-const CAM_PASSWORD = "WARD14";
-const CAM_KEY = "kkpb3_cams";
+import ward14Audio from "@/assets/ward14.wav.asset.json";
 
 export const Route = createFileRoute("/cameras")({
   head: () => ({
@@ -22,7 +20,7 @@ const CAMS = [
   { id: "02", ru: "Приёмное отделение", en: "Admissions", state: "ok" },
   { id: "03", ru: "Корпус Б, коридор 1", en: "Building B, corridor 1", state: "ok" },
   { id: "04", ru: "Корпус Б, пост №2", en: "Building B, station No. 2", state: "none" },
-  { id: "05", ru: "Палата №14", en: "Ward 14", state: "frozen" },
+  { id: "05", ru: "Палата №14", en: "Ward 14", state: "frozen", audio: ward14Audio.url },
   { id: "06", ru: "Архив, подвал", en: "Archive, basement", state: "none" },
 ] as const;
 
@@ -44,10 +42,6 @@ function Cameras() {
   const { t } = useLang();
   const T = (ru: string, en: string) => t({ ru, en });
   const { unlocked } = useArchive();
-  const [ok, setOk] = useState(false);
-  const [pw, setPw] = useState("");
-  const [err, setErr] = useState(false);
-  useEffect(() => setOk(sessionStorage.getItem(CAM_KEY) === "1"), []);
 
   if (!unlocked) {
     return (
@@ -61,24 +55,7 @@ function Cameras() {
   return (
     <Layout crumb={{ ru: "Видеонаблюдение", en: "Video surveillance" }} side={false}>
       <h1>{T("Система видеонаблюдения", "Video surveillance system")}</h1>
-      {!ok ? (
-        <div className="box">
-          <div className="box-h alt">{T("Служебный доступ", "Staff access")}</div>
-          <div className="box-b">
-            <div className="notice">{T("Просмотр разрешён дежурному персоналу. Введите пароль поста.", "Viewing permitted to duty staff only. Enter the station password.")}</div>
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              const good = pw.trim().toUpperCase().replace(/\s/g, "") === CAM_PASSWORD;
-              if (good) { sessionStorage.setItem(CAM_KEY, "1"); setOk(true); }
-              setErr(!good);
-            }}>
-              {T("Пароль", "Password")}: <input className="field" type="password" value={pw} onChange={(e) => setPw(e.target.value)} />{" "}
-              <button className="btn" type="submit">{T("Войти", "Enter")}</button>
-            </form>
-            {err && <p className="err" style={{ marginTop: 6 }}>{T("Неверный пароль.", "Invalid password.")}</p>}
-          </div>
-        </div>
-      ) : (
+      {(
         <>
           <p className="meta">{T("Режим: запись. Хранение — 72 часа.", "Mode: recording. Retention — 72 hours.")}</p>
           <div className="cams">
@@ -89,6 +66,12 @@ function Cameras() {
                   <div className="cam-osd">CAM {c.id} · <Clock frozen={c.state === "frozen"} /></div>
                 </div>
                 <div className="cam-cap">{T(c.ru, c.en)}</div>
+                {"audio" in c && c.audio && (
+                  <div style={{ marginTop: 4 }}>
+                    <div className="meta">{T("Видеосигнал отсутствует. Только звук.", "No video signal. Sound only.")}</div>
+                    <audio controls preload="none" src={c.audio} style={{ width: "100%" }} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
