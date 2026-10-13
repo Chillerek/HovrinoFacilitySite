@@ -35,7 +35,7 @@ function About() {
         <li>{T("Устав учреждения (ред. 1999 г.)", "Charter (1999 revision)")}</li>
         <li>{T("Правила внутреннего распорядка для пациентов", "Internal rules for patients")}</li>
         <li>
-          {T("Приказ №14 от 11.01.2002 «О порядке доступа к архиву исторических документов». П. 3: в целях сохранности код доступа хранится в смещённом виде — LWVDOLH. Для получения кода каждую букву следует сдвинуть назад по латинскому алфавиту на число, равное номеру настоящего пункта.", "Order No. 14 of 11.01.2002 \"On Access to the Historical Records Archive\". Clause 3: for safekeeping, the access code is stored in shifted form — LWVDOLH. To obtain the code, shift each letter back through the Latin alphabet by the number of this clause.")}
+          {T("Приказ №14 от 11.01.2002 «О порядке доступа к архиву исторических документов». П. 3: в целях сохранности код доступа хранится в зеркальном виде — RGHZORV. Для получения кода каждую букву следует заменить на зеркальную по латинскому алфавиту: первую на последнюю, вторую на предпоследнюю и так далее.", "Order No. 14 of 11.01.2002 \"On Access to the Historical Records Archive\". Clause 3: for safekeeping, the access code is stored in mirrored form — RGHZORV. To obtain the code, replace each letter with its mirror in the Latin alphabet: the first with the last, the second with the second-to-last, and so on.")}
         </li>
       </ul>
     </Layout>
