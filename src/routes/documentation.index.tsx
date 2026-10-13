@@ -27,6 +27,7 @@ function DocIndex() {
       <p>{T("Раздел содержит отчёты учреждения и материалы архива исторических документов.", "This section contains institutional reports and materials from the historical records archive.")}</p>
       {!unlocked && <ArchiveGate onTry={tryUnlock} />}
       {unlocked && <p className="meta">{T("Доступ к архиву открыт на время сеанса.", "Archive access granted for this session.")} <a href="#" onClick={(e) => { e.preventDefault(); lock(); }}>{T("Выйти", "Log out")}</a></p>}
+      {unlocked && <p className="meta">{T("Пароль поста видеонаблюдения совпадает с номером палаты, где сработал звонок (англ., слитно: WARD + №).", "The surveillance station password matches the ward where the buzzer rang (WARD + number, no spaces).")}</p>}
       <div style={{ margin: "6px 0" }}>
         {t(UI.search)}: <input className="field" value={q} onChange={(e) => setQ(e.target.value)} />{" "}
         <button className="btn" type="button" onClick={() => setQ("")}>{t(UI.reset)}</button>

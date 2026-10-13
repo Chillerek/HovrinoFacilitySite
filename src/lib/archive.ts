@@ -6,18 +6,25 @@ const KEY = "kkpb3_archive";
 
 export function useArchive() {
   const [unlocked, setUnlocked] = useState(false);
-  useEffect(() => setUnlocked(sessionStorage.getItem(KEY) === "1"), []);
+  useEffect(() => {
+    const sync = () => setUnlocked(sessionStorage.getItem(KEY) === "1");
+    sync();
+    window.addEventListener("kkpb3-archive", sync);
+    return () => window.removeEventListener("kkpb3-archive", sync);
+  }, []);
   const tryUnlock = (pw: string) => {
     const ok = pw.trim().toUpperCase() === ARCHIVE_PASSWORD;
     if (ok) {
       sessionStorage.setItem(KEY, "1");
       setUnlocked(true);
+      window.dispatchEvent(new Event("kkpb3-archive"));
     }
     return ok;
   };
   const lock = () => {
     sessionStorage.removeItem(KEY);
     setUnlocked(false);
+    window.dispatchEvent(new Event("kkpb3-archive"));
   };
   return { unlocked, tryUnlock, lock };
 }
