@@ -123,6 +123,12 @@
 }
 
 /* CCTV page */
+.documentation, .documentation .paper, .documentation h1, .documentation h2, .documentation h3, .documentation input, .documentation button {
+  font-family: "Courier Prime", "Courier New", monospace;
+}
+.documentation .paper { overflow-wrap: anywhere; }
+
+/* CCTV page */
 .cams { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .cam { border: 1px solid #888; background: #ddd; }
 .cam-view { position: relative; aspect-ratio: 4/3; background: #2a2a2a; color: #ccc; font: 11px "Courier New", monospace; display: flex; align-items: center; justify-content: center; overflow: hidden; }

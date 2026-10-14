@@ -30,15 +30,17 @@ export const Route = createFileRoute("/documentation/$slug")({
 
 function DocView() {
   const { slug } = Route.useLoaderData();
-  const doc = DOCS.find((d) => d.slug === slug)!;
+  const doc = DOCS.find((d) => d.slug === slug);
   const { t } = useLang();
   const T = (ru: string, en: string) => t({ ru, en });
   const { unlocked, tryUnlock } = useArchive();
+  if (!doc) throw notFound();
+  const renderText = (text: string) => doc.corrupted === false ? text : corruptText(text);
   const back = <Link to="/documentation">{t(UI.back)}</Link>;
   if (!doc.public && !unlocked)
-    return <Layout crumb={UI.documentation}>{back}<ArchiveGate onTry={tryUnlock} /></Layout>;
+    return <Layout crumb={UI.documentation} contentClassName="documentation">{back}<ArchiveGate onTry={tryUnlock} /></Layout>;
   return (
-    <Layout crumb={UI.documentation} side={false}>
+    <Layout crumb={UI.documentation} side={false} contentClassName="documentation">
       {back}
       <table className="tbl" style={{ marginTop: 8 }}><tbody>
         <tr><th>{T("Номер документа", "Document No.")}</th><td>{doc.no}</td><th>{T("Дата", "Date")}</th><td>{doc.date}{doc.revised && <> ({T("ред.", "rev.")} {doc.revised})</>}</td></tr>
@@ -48,16 +50,16 @@ function DocView() {
       <div className="paper">
         <div style={{ textAlign: "right" }}><span className="stamp">{t(doc.access)}</span></div>
         <h3>{t(doc.title)}</h3>
-        <p className="meta">{T("Файл повреждён. Восстановление невозможно.", "File corrupted. Recovery not possible.")}</p>
+        {doc.corrupted !== false && <p className="meta">{T("Файл повреждён. Восстановление невозможно.", "File corrupted. Recovery not possible.")}</p>}
         {doc.body.map((b, i) => {
           if (b.t === "table") return (
-            <table key={i} className="tbl"><thead><tr>{b.head.map((h, j) => <th key={j}>{corruptText(t(h))}</th>)}</tr></thead>
-              <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}>{corruptText(t(c))}</td>)}</tr>)}</tbody></table>
+            <table key={i} className="tbl"><thead><tr>{b.head.map((h, j) => <th key={j}>{renderText(t(h))}</th>)}</tr></thead>
+              <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}>{renderText(t(c))}</td>)}</tr>)}</tbody></table>
           );
-          if (b.t === "h") return <h3 key={i}>{corruptText(t(b.v))}</h3>;
-          if (b.t === "sig") return <p key={i} className="sig">{corruptText(t(b.v))}</p>;
-          if (b.t === "note") return <p key={i} className="meta">{corruptText(t(b.v))}</p>;
-          return <p key={i}>{corruptText(t(b.v))}</p>;
+          if (b.t === "h") return <h3 key={i}>{renderText(t(b.v))}</h3>;
+          if (b.t === "sig") return <p key={i} className="sig">{renderText(t(b.v))}</p>;
+          if (b.t === "note") return <p key={i} className="meta">{renderText(t(b.v))}</p>;
+          return <p key={i}>{renderText(t(b.v))}</p>;
         })}
       </div>
       {doc.attachments && (
@@ -67,7 +69,7 @@ function DocView() {
             {doc.attachments.map((a) => (
               <li key={a.name}>
                 {a.content ? (
-                  <>{a.name} [<a href="#" onClick={(e) => { e.preventDefault(); downloadText(a.name, corruptText(t(a.content!))); }}>{t(UI.download)}</a>]</>
+                   <>{a.name} [<a href="#" onClick={(e) => { e.preventDefault(); if (a.content) downloadText(a.name, renderText(t(a.content))); }}>{t(UI.download)}</a>]</>
                 ) : (
                   <><span className="missing">{a.name}</span> — <span className="meta">{t(UI.fileMissing)}</span></>
                 )}

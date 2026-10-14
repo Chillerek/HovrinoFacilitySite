@@ -22,7 +22,7 @@ function DocIndex() {
   const visible = DOCS.filter((d) => unlocked || d.public);
   const list = visible.filter((d) => !n || [d.no, d.date, d.title.ru, d.title.en, d.author.ru, d.author.en, d.category.ru, d.category.en, ...d.body.map((b) => ("v" in b ? b.v.ru + " " + b.v.en : ""))].join(" ").toLowerCase().includes(n));
   return (
-    <Layout crumb={UI.documentation}>
+    <Layout crumb={UI.documentation} contentClassName="documentation">
       <h1>{T("Документация", "Documentation")}</h1>
       <p>{T("Раздел содержит отчёты учреждения и материалы архива исторических документов.", "This section contains institutional reports and materials from the historical records archive.")}</p>
       {!unlocked && <ArchiveGate onTry={tryUnlock} />}

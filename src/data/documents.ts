@@ -42,6 +42,7 @@ export type Doc = {
   category: L;
   access: L;
   public?: boolean;
+  corrupted?: boolean;
   body: Block[];
   attachments?: { name: string; content?: L }[];
 };

@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Archive entries use bilingual blocks in `src/data/documents.ts` and the shared language switch, keeping translations aligned.
+- Document corruption defaults to enabled; explicit `corrupted: false` preserves readable supplied research without changing legacy archive files.
+- Documentation typography is scoped through Layout's contentClassName so other institutional pages retain their existing appearance.
