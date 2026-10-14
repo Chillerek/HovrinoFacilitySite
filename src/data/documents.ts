@@ -1,4 +1,5 @@
 import type { L } from "@/lib/i18n";
+import x07Conversation from "@/assets/x07-part-2-conversation.wav.asset.json";
 
 /**
  * ARCHIVE DOCUMENTS.
@@ -43,6 +44,8 @@ export type Doc = {
   access: L;
   public?: boolean;
   corrupted?: boolean;
+  password?: string;
+  recording?: { url: string; label: L };
   body: Block[];
   attachments?: { name: string; content?: L }[];
 };
@@ -392,9 +395,28 @@ export const DOCS: Doc[] = [
         "ru": "Один из исследователей перенёс тяжёлый психологический кризис. Впоследствии он предпринял попытку лишить себя зрения и способности ощущать прикосновения. Сотрудник был отстранён от исследований и помещён в изоляцию.",
         "en": "One of the researchers suffered a severe psychological crisis. In its aftermath, he attempted to deprive himself of his sight and sense of touch. He was subsequently removed from the research team and placed in isolation."
       }
-    }
+    },
+    NOTE("ПАРОЛЬ К ЧАСТИ 2 — goodnight", "PASSWORD TO PART 2 — goodnight")
   ]
 },
+  {
+    slug: "x07-research-part-2",
+    no: "X07 / 02",
+    date: "[НЕ УСТАНОВЛЕНА / UNKNOWN]",
+    title: s("Исследование X07 — часть 2", "X07 Study — Part 2"),
+    author: s("[ДАННЫЕ НЕ УСТАНОВЛЕНЫ]", "[IDENTITY UNKNOWN]"),
+    category: s("Исследовательская документация", "Research documentation"),
+    access: ACC.restricted,
+    corrupted: false,
+    password: "goodnight",
+    recording: { url: x07Conversation.url, label: s("Записанная беседа", "Recorded conversation") },
+    body: [
+      H("[ДОПОЛНЕНИЕ — АВТОР НЕИЗВЕСТЕН]", "[ADDENDUM — AUTHOR UNKNOWN]"),
+      P("И откуда ты знаешь, что ты — это ты?", "And how do you know that you are you?"),
+      P("Откуда ты знаешь, что мир, который ты видишь, действительно существует?", "How do you know that the world you see truly exists?"),
+      P("Может быть, всё это — лишь твои чувства.", "Perhaps it is all just your senses."),
+    ],
+  },
   {
     slug: "001-annual-report-2002",
     no: "ГО-2002/01",

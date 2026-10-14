@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { ArchiveGate } from "@/components/ArchiveGate";
 import { useLang } from "@/lib/i18n";
@@ -34,11 +35,18 @@ function DocView() {
   const { t } = useLang();
   const T = (ru: string, en: string) => t({ ru, en });
   const { unlocked, tryUnlock } = useArchive();
+  const [unlockedDocument, setUnlockedDocument] = useState<string | null>(null);
   if (!doc) throw notFound();
   const renderText = (text: string) => doc.corrupted === false ? text : corruptText(text);
   const back = <Link to="/documentation">{t(UI.back)}</Link>;
   if (!doc.public && !unlocked)
     return <Layout crumb={UI.documentation} contentClassName="documentation">{back}<ArchiveGate onTry={tryUnlock} /></Layout>;
+  if (doc.password && unlockedDocument !== doc.slug)
+    return <Layout crumb={UI.documentation} contentClassName="documentation">{back}<ArchiveGate key={doc.slug} title={doc.title} documentOnly onTry={(password) => {
+      if (password.trim().toLowerCase() !== doc.password?.toLowerCase()) return false;
+      setUnlockedDocument(doc.slug);
+      return true;
+    }} /></Layout>;
   return (
     <Layout crumb={UI.documentation} side={false} contentClassName="documentation">
       {back}
@@ -50,6 +58,10 @@ function DocView() {
       <div className="paper">
         <div style={{ textAlign: "right" }}><span className="stamp">{t(doc.access)}</span></div>
         <h3>{t(doc.title)}</h3>
+        {doc.recording && <section aria-label={t(doc.recording.label)}>
+          <h3>{t(doc.recording.label)}</h3>
+          <audio className="w-full" controls preload="metadata" src={doc.recording.url} aria-label={t(doc.recording.label)} />
+        </section>}
         {doc.corrupted !== false && <p className="meta">{T("Файл повреждён. Восстановление невозможно.", "File corrupted. Recovery not possible.")}</p>}
         {doc.body.map((b, i) => {
           if (b.t === "table") return (
