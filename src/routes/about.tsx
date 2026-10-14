@@ -5,7 +5,7 @@ import { meta } from "@/lib/meta";
 import { UI } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
-  head: () => meta("О больнице", "История, миссия, структура и руководство ККПБ №3 «Северная Заря»."),
+  head: () => meta("О больнице", "Миссия, структура и руководство ККПБ №3 «Северная Заря»."),
   component: About,
 });
 
@@ -34,9 +34,7 @@ function About() {
       <ul>
         <li>{T("Устав учреждения (ред. 1999 г.)", "Charter (1999 revision)")}</li>
         <li>{T("Правила внутреннего распорядка для пациентов", "Internal rules for patients")}</li>
-        <li>
-          {T("Приказ №14 от 11.01.2002 «О порядке доступа к архиву исторических документов». П. 3: в целях сохранности код доступа записан в обратном порядке — EILASTI. Для получения кода его следует прочитать справа налево.", "Order No. 14 of 11.01.2002 \"On Access to the Historical Records Archive\". Clause 3: for safekeeping, the access code is written in reverse — EILASTI. To obtain the code, read it from right to left.")}
-        </li>
+        <li>{T("Приказ №14 от 11.01.2002 «О порядке доступа к архиву исторических документов»", "Order No. 14 of 11.01.2002 \"On Access to the Historical Records Archive\"")}</li>
       </ul>
     </Layout>
   );

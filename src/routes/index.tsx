@@ -51,15 +51,6 @@ function Home() {
         <Link to="/specialists">{t(UI.more)}</Link>
       </p>
 
-      <h2>{T("Из истории больницы", "History in Brief")}</h2>
-      <p>
-        {T(
-          "Больница основана в 1952 году на базе бывшего санатория «Северная Заря». В 1960–1980-е годы были построены корпуса Б и В, открыты новые отделения. В 1999 году больнице присвоен статус клинической.",
-          "The hospital was founded in 1952 on the site of the former \"Severnaya Zarya\" sanatorium. Buildings B and C were constructed in the 1960s–1980s and new departments opened. In 1999 the hospital was granted clinical status.",
-        )}{" "}
-        <Link to="/history">{t(UI.more)}</Link>
-      </p>
-
       <h2>{T("Пациентам и родственникам", "Patients and Relatives")}</h2>
       <ul>
         <li><Link to="/patients">{T("Порядок госпитализации", "Admission procedure")}</Link></li>

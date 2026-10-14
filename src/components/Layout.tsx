@@ -9,7 +9,6 @@ const NAV = [
   { to: "/about", k: "about" },
   { to: "/departments", k: "departments" },
   { to: "/specialists", k: "specialists" },
-  { to: "/history", k: "history" },
   { to: "/patients", k: "patients" },
   { to: "/documentation", k: "documentation" },
   { to: "/contacts", k: "contacts" },
