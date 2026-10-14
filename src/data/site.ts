@@ -20,7 +20,6 @@ export const UI = {
   about: { ru: "О больнице", en: "About Us" },
   departments: { ru: "Отделения", en: "Departments" },
   specialists: { ru: "Специалисты", en: "Specialists" },
-  history: { ru: "История", en: "History" },
   patients: { ru: "Пациентам", en: "Patient Information" },
   documentation: { ru: "Документация", en: "Documentation" },
   contacts: { ru: "Контакты", en: "Contacts" },
