@@ -32,7 +32,7 @@ export function Emblem() {
   );
 }
 
-export function Layout({ crumb, children, side = true }: { crumb?: L; children: ReactNode; side?: boolean }) {
+export function Layout({ crumb, children, side = true, contentClassName = "" }: { crumb?: L; children: ReactNode; side?: boolean; contentClassName?: string }) {
   const { lang, setLang, t } = useLang();
   const { unlocked } = useArchive();
   return (
@@ -89,7 +89,7 @@ export function Layout({ crumb, children, side = true }: { crumb?: L; children: 
             </div>
           </aside>
         )}
-        <main className="main">{children}</main>
+        <main className={`main ${contentClassName}`}>{children}</main>
       </div>
       <div className="footer">
         © 1998–2005 {t(SITE.short)}. {t(UI.rights)}
