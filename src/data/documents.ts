@@ -70,6 +70,331 @@ const ACC = {
 };
 
 export const DOCS: Doc[] = [
+{
+  "slug": "x07-research-part-1",
+  "no": "X07 / 01",
+  "date": "12.02.1985",
+  "title": {
+    "ru": "Исследование X07 — часть 1",
+    "en": "X07 Study — Part 1"
+  },
+  "author": {
+    "ru": "[ДАННЫЕ НЕ УСТАНОВЛЕНЫ]",
+    "en": "[IDENTITY UNKNOWN]"
+  },
+  "category": {
+    "ru": "Исследовательская документация",
+    "en": "Research documentation"
+  },
+  "access": {
+    "ru": "Ограниченный доступ. Не копировать",
+    "en": "Restricted. Do not copy"
+  },
+  "corrupted": false,
+  "body": [
+    {
+      "t": "h",
+      "v": {
+        "ru": "ДОКУМЕНТАЦИЯ X07 — ИССЛЕДОВАНИЕ № 01",
+        "en": "X07 DOCUMENTATION — STUDY No. 01"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Дата: 12.02.1985\nАвтор: [ДАННЫЕ НЕ УСТАНОВЛЕНЫ]",
+        "en": "Date: 12 February 1985\nAuthor: [IDENTITY UNKNOWN]"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Цель исследования — изучить реакцию нервной системы человека на постепенное ограничение сенсорных раздражителей.",
+        "en": "The purpose of this study is to examine the response of the human nervous system to the gradual restriction of sensory stimuli."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Объект исследования был отобран на основании высоких результатов, продемонстрированных в ходе предыдущих исследований, проведённых в нашей больнице.",
+        "en": "The research subject was selected on the basis of the high results obtained during previous examinations conducted at our hospital."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "В рамках исследования предполагается наблюдение за изменениями восприятия времени, пространственной ориентации, распознавания звуков, а также способности различать реальные и воображаемые раздражители.",
+        "en": "The study focuses on changes in time perception, spatial orientation, sound recognition, and the ability to distinguish between real and imagined stimuli."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Возникновение явлений, выходящих за пределы известных неврологических реакций, не ожидается.",
+        "en": "No phenomena beyond the scope of known neurological responses are anticipated."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "ДОКУМЕНТАЦИЯ X07 — ИССЛЕДОВАНИЕ № 02",
+        "en": "X07 DOCUMENTATION — STUDY No. 02"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Обозначение объекта: X07\nИмя и фамилия: [ЗАСЕКРЕЧЕНО]\nВозраст: [ЗАСЕКРЕЧЕНО]\nСостояние до начала эксперимента: В пределах нормы\nДата поступления: 14.02.1985",
+        "en": "Subject designation: X07\nName: [REDACTED]\nAge: [REDACTED]\nPre-experimental condition: Within normal limits\nDate of admission: 14 February 1985"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "До начала исследования объект не демонстрировал отклонений в поведении. Однако в связи с предстоящим экспериментом наблюдались признаки дезориентации.",
+        "en": "Prior to the commencement of the study, the subject exhibited no abnormal behavioural patterns. However, signs of disorientation were observed in connection with the planned experiment."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "Ход эксперимента",
+        "en": "Experimental Procedure"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Перед началом исследования объект был помещён в изоляцию сроком на одни сутки.",
+        "en": "Before the study commenced, the subject was placed in isolation for a period of twenty-four hours."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "Этап 1. — Лишение зрения",
+        "en": "Stage 1 — Loss of Sight"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Объект был лишён зрения таким образом, чтобы полностью исключить возможность зрительного восприятия окружающей обстановки.",
+        "en": "The subject was deprived of sight under conditions intended to ensure that visual perception of the surrounding environment was entirely eliminated."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Спустя несколько минут объект заснул. Во время сна он начал описывать помещение, в котором находились исследователи.",
+        "en": "After several minutes, the subject fell asleep. During sleep, the subject began describing the room in which the researchers were present."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Объект описывал расположение предметов и местоположение находившихся внутри людей.",
+        "en": "The subject described the arrangement of the room and the positions of the individuals inside it."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "Этап 2. — Лишение слуха",
+        "en": "Stage 2 — Loss of Hearing"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Объект был лишён способности воспринимать звуки.",
+        "en": "The subject was deprived of the ability to hear."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Несмотря на это, он начал описывать звуки природы, которые не мог слышать. Среди них упоминались пение птиц и шелест деревьев.",
+        "en": "Despite this, the subject began describing sounds of nature that should have been inaudible. These included birdsong and the rustling of trees."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Источник данных ощущений установить не удалось.",
+        "en": "The source of these auditory experiences could not be determined."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "Этап 3. — Утрата тактильной чувствительности",
+        "en": "Stage 3 — Loss of Tactile Sensation"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "В результате вмешательства в работу нервной системы, отвечающей за восприятие тактильных раздражителей, объект был лишён способности ощущать прикосновения.",
+        "en": "Through intervention in the nervous system responsible for processing tactile stimuli, the subject was deprived of the ability to perceive touch."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Объект не реагировал на тактильные раздражители. Однако исследователи начали сообщать о необычных ощущениях, словно кто-то воздействовал на их собственное осязание.",
+        "en": "The subject exhibited no response to tactile stimuli. However, researchers began reporting unusual sensations, as though their own sense of touch were being interfered with."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Причина данного явления не установлена.",
+        "en": "The cause of this phenomenon remains unknown."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "ДОКУМЕНТАЦИЯ X07 — ИССЛЕДОВАНИЕ № 03",
+        "en": "X07 DOCUMENTATION — STUDY No. 03"
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "Инцидент № 01",
+        "en": "Incident No. 01"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Дата: 16.02.1985\nВремя: 23:43",
+        "en": "Date: 16 February 1985\nTime: 23:43"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Один из исследователей проснулся от громкого плача, доносившегося из помещения, в котором находился объект.",
+        "en": "One of the researchers was awakened by loud crying coming from the subject's room."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Подойдя к одностороннему зеркалу, отделявшему его от исследуемого, он заметил, что объект внезапно бросился в его сторону, несмотря на утрату сенсорных способностей.",
+        "en": "Upon approaching the one-way mirror separating him from the subject, he observed the subject suddenly lunge towards him, despite the loss of the subject's sensory abilities."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Примечательно, что сотрудник никак не отреагировал на произошедшее. Он не проявил ни страха, ни признаков дезориентации. Примерно через пять минут он вернулся в постель и снова заснул, словно ничего не произошло.",
+        "en": "Of particular concern was the fact that the staff member showed no reaction to the event. He displayed no signs of fear or disorientation. After approximately five minutes, he returned to bed and fell asleep again, as though nothing had happened."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Инцидент не разбудил остальных исследователей.",
+        "en": "The incident did not awaken the other researchers."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Во время происшествия объект неоднократно повторял следующие слова:",
+        "en": "During the event, the subject repeatedly uttered the following statement:"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "«Всё, что я знал, исчезло вместе с моими чувствами.",
+        "en": "“Everything I knew disappeared along with my senses."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Люди создают собственное представление о мире и верят, что оно соответствует действительности. Однако они не понимают, что достаточно их собственному разуму начать обманывать их, и всё, на что они прежде полагались, может утратить всякое значение».",
+        "en": "People construct their own perception of the world and believe it to be real. What they fail to understand is that all it takes is for their own minds to begin deceiving them, and everything they have ever relied upon may cease to have any meaning whatsoever.”"
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "Дополнительное наблюдение",
+        "en": "Additional Observation"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "В ту ночь каждому из сотрудников снились сны, в которых они воспринимали происходящее с точки зрения объекта. Согласно показаниям исследователей, во время сна они видели мир его глазами и воспринимали окружающее так, словно сами находились на его месте.",
+        "en": "That night, every staff member experienced dreams from the subject's perspective. According to the researchers' accounts, they saw the world through the subject's eyes and perceived their surroundings as though they themselves were in his place."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Причину данного явления установить не удалось.",
+        "en": "The cause of this phenomenon could not be determined."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "ДОКУМЕНТАЦИЯ X07 — НАБЛЮДЕНИЯ",
+        "en": "X07 DOCUMENTATION — OBSERVATIONS"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "В ходе исследования были зафиксированы следующие отклонения:",
+        "en": "The following abnormalities were recorded during the course of the study:"
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "1. Беспокойство персонала",
+        "en": "1. Staff Distress"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Все сотрудники, принимавшие участие в эксперименте, сообщали о нарастающем чувстве тревоги, причину которого установить не удалось.",
+        "en": "All personnel involved in the experiment reported a growing sense of unease for which no identifiable cause could be established."
+      }
+    },
+    {
+      "t": "h",
+      "v": {
+        "ru": "2. Утрата доверия к собственным органам чувств",
+        "en": "2. Loss of Trust in the Senses"
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "После первого инцидента многие сотрудники начали сомневаться в достоверности собственных ощущений.",
+        "en": "Following the first incident, many staff members began to question the reliability of their own senses."
+      }
+    },
+    {
+      "t": "p",
+      "v": {
+        "ru": "Один из исследователей перенёс тяжёлый психологический кризис. Впоследствии он предпринял попытку лишить себя зрения и способности ощущать прикосновения. Сотрудник был отстранён от исследований и помещён в изоляцию.",
+        "en": "One of the researchers suffered a severe psychological crisis. In its aftermath, he attempted to deprive himself of his sight and sense of touch. He was subsequently removed from the research team and placed in isolation."
+      }
+    }
+  ]
+},
   {
     slug: "001-annual-report-2002",
     no: "ГО-2002/01",
