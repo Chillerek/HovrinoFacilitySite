@@ -42,6 +42,34 @@ function Cameras() {
   const { t } = useLang();
   const T = (ru: string, en: string) => t({ ru, en });
   const { unlocked } = useArchive();
+  const [downloading, setDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState(false);
+
+  const downloadRecording = async (url: string) => {
+    if (downloading) return;
+    setDownloading(true);
+    setDownloadError(false);
+    let objectUrl: string | undefined;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Recording unavailable");
+      objectUrl = URL.createObjectURL(await response.blob());
+      const link = document.createElement("a");
+      link.href = objectUrl;
+      link.download = "CAM-05-ward14.wav";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch {
+      setDownloadError(true);
+    } finally {
+      if (objectUrl) {
+        const urlToRevoke = objectUrl;
+        window.setTimeout(() => URL.revokeObjectURL(urlToRevoke), 1000);
+      }
+      setDownloading(false);
+    }
+  };
 
   if (!unlocked) {
     return (
@@ -72,6 +100,14 @@ function Cameras() {
                     <audio controls preload="none" src={c.audio} style={{ width: "100%" }} />
                   </div>
                 )}
+                <div className="meta mt-1">
+                  {"audio" in c && c.audio ? <>
+                    <a href={c.audio} download="CAM-05-ward14.wav" aria-disabled={downloading} onClick={(e) => { e.preventDefault(); void downloadRecording(c.audio); }}>
+                      {downloading ? T("Загрузка…", "Downloading…") : T("Скачать запись", "Download recording")}
+                    </a>
+                    {downloadError && <p className="err" role="alert">{T("Не удалось скачать запись. Повторите попытку.", "Download failed. Please try again.")}</p>}
+                  </> : <span>{T("Скачать запись: недоступно", "Download recording: unavailable")}</span>}
+                </div>
               </div>
             ))}
           </div>
